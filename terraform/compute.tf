@@ -11,12 +11,12 @@ resource "google_compute_instance" "default" {
  allow_stopping_for_update = "true"
  name = "${var.project_name}-web"
  tags = ["web"]
- machine_type = "n1-standard-1"
+ machine_type = "custom-1-6656"
 
  boot_disk {
    initialize_params {
      size = "10"
-     image = "centos-7"
+     image = "coreos-stable"
      type = "pd-ssd"
    }
  }

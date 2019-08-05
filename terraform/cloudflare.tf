@@ -12,9 +12,9 @@ resource "cloudflare_zone_settings_override" "default" {
     }
 }
 
-resource "cloudflare_record" "app" {
+resource "cloudflare_record" "docker" {
   domain  = "${var.cloudflare_domain}"
-  name    = "app"
+  name    = "docker"
   value   = "${google_compute_address.default.address}"
   type    = "A"
   ttl     = 1
