@@ -8,7 +8,7 @@ resource "cloudflare_zone_settings_override" "default" {
     settings {
         ssl = "full"
         always_online = "on"
-        always_use_https = "on"
+        #always_use_https = "on"
     }
 }
 

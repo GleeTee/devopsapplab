@@ -23,6 +23,19 @@ resource "google_compute_firewall" "allow_ssh" {
     source_ranges = ["0.0.0.0/0"]
 }
 
+resource "google_compute_firewall" "allow_http" {
+    name = "allow-http"
+    project = "${google_project_services.project.project}"
+    network = "${google_compute_network.default.self_link}"
+
+    allow {
+        protocol = "tcp"
+        ports = ["80"]
+    }
+
+    source_ranges = ["0.0.0.0/0"]
+}
+
 data "cloudflare_ip_ranges" "cloudflare" {}
 
 resource "google_compute_firewall" "allow_cloudflare" {
